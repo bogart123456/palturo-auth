@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a0c08">
+  <title>Email confirmed · PalTuro</title>
+  <style>
+    :root {
+      --ink: #0a0c08;
+      --card: #151813;
+      --line: #2b3026;
+      --lime: #bfe109;
+      --white: #f7f8f2;
+      --muted: #aeb6a5;
+      --muted-2: #7d8675;
+    }
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      padding: 32px 18px;
+      background:
+        radial-gradient(900px 420px at 50% -10%, rgba(191, 225, 9, .16), transparent 72%),
+        radial-gradient(700px 500px at 50% 115%, rgba(191, 225, 9, .06), transparent 70%),
+        var(--ink);
+      color: var(--white);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .shell { width: 100%; max-width: 560px; }
+    .brand {
+      display: flex;
+      justify-content: center;
+      margin: 0 0 22px;
+    }
+    .brand img { display: block; width: 156px; height: auto; }
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 46px 42px 34px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,0) 35%),
+        var(--card);
+      box-shadow: 0 28px 80px rgba(0,0,0,.45);
+      text-align: center;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(191,225,9,.18), transparent 68%);
+      pointer-events: none;
+    }
+    .badge {
+      position: relative;
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--lime);
+      box-shadow: 0 0 0 8px rgba(191,225,9,.08), 0 12px 34px rgba(191,225,9,.16);
+    }
+    .badge svg { width: 36px; height: 36px; display: block; }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--lime);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: var(--white);
+      font-size: clamp(32px, 8vw, 44px);
+      line-height: 1.06;
+      letter-spacing: -.035em;
+      font-weight: 800;
+    }
+    .lede {
+      margin: 18px auto 0;
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .open {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 54px;
+      margin: 28px 0 0;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--lime);
+      color: #101304;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .open:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .open:active { transform: translateY(0); }
+    .hint {
+      margin: 14px 0 0;
+      color: var(--muted-2);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .divider {
+      height: 1px;
+      margin: 28px 0 20px;
+      background: var(--line);
+    }
+    .small {
+      margin: 0;
+      color: var(--muted-2);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .footer {
+      margin: 22px 0 0;
+      color: #626b5b;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .footer a { color: #8b957f; text-decoration: none; }
+    .error-copy { display: none; }
+    body.is-error .success-copy { display: none; }
+    body.is-error .error-copy { display: block; }
+    body.is-error .badge { background: #2a2e25; box-shadow: none; }
+    body.is-error .badge svg { display: none; }
+    body.is-error .badge::after {
+      content: "!";
+      color: var(--lime);
+      font-size: 34px;
+      font-weight: 800;
+    }
+    @media (max-width: 480px) {
+      body { padding: 22px 14px; }
+      .card { padding: 36px 22px 28px; border-radius: 22px; }
+      .brand { margin-bottom: 18px; }
+      .brand img { width: 138px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .open { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="brand">
+      <img src="https://yjcrfgvenilptrnudvcb.supabase.co/storage/v1/object/public/brand/palturo-email-logo.png" alt="PalTuro" width="156">
+    </div>
+
+    <section class="card" aria-live="polite">
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 18.5L15 25.5L28 11.5" stroke="#101304" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="success-copy">
+        <p class="eyebrow">You're in</p>
+        <h1>Email confirmed.</h1>
+        <p class="lede">Your PalTuro account is ready. Open the app to finish your profile and start finding your people.</p>
+      </div>
+
+      <div class="error-copy">
+        <p class="eyebrow">Link expired</p>
+        <h1>Let's try that again.</h1>
+        <p class="lede">This confirmation link is no longer valid. Open PalTuro and request a new confirmation email from the sign-in screen.</p>
+      </div>
+
+      <a class="open" id="open-app" href="palturo://auth/callback">Open PalTuro</a>
+      <p class="hint" id="hint">If the app doesn't open automatically, tap the button above.</p>
+
+      <div class="divider"></div>
+      <p class="small">You can close this window once PalTuro opens.</p>
+    </section>
+
+    <p class="footer">PalTuro · <a href="mailto:team@palturo.app">team@palturo.app</a> · palturo.app</p>
+  </main>
+
+  <script>
+    (function () {
+      var query = new URLSearchParams(window.location.search);
+      var hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      function get(key) { return query.get(key) || hash.get(key); }
+
+      var error = get('error_description') || get('error');
+      var type = get('type');
+      var isRecovery = type === 'recovery';
+      var hasPayload = ['access_token', 'code', 'token_hash'].some(function (key) { return !!get(key); });
+      var appBase = isRecovery ? 'palturo://auth/reset-callback' : 'palturo://auth/callback';
+      var target = appBase + (window.location.search || '') + (window.location.hash || '');
+      var open = document.getElementById('open-app');
+      var hint = document.getElementById('hint');
+      var heading = document.querySelector('.success-copy h1');
+      var lede = document.querySelector('.success-copy .lede');
+      var eyebrow = document.querySelector('.success-copy .eyebrow');
+
+      if (isRecovery && !error) {
+        eyebrow.textContent = 'Verified';
+        heading.textContent = 'Reset your password.';
+        lede.textContent = 'Your reset link is valid. Open PalTuro to choose a new password.';
+        open.textContent = 'Open PalTuro to reset';
+      }
+
+      if (error) {
+        document.body.classList.add('is-error');
+        open.textContent = 'Open PalTuro';
+        hint.textContent = 'Request a new link from the sign-in screen.';
+        open.setAttribute('href', 'palturo://auth/callback');
+        return;
+      }
+
+      open.setAttribute('href', target);
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (hasPayload && isMobile) {
+        window.setTimeout(function () {
+          window.location.href = target;
+        }, 900);
+      } else if (hasPayload) {
+        hint.textContent = 'Open this email on your phone, or tap Open PalTuro if the app is installed.';
+      }
+    }());
+  </script>
+</body>
+</html>
